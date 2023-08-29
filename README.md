@@ -1,6 +1,7 @@
 # HTTP Status Code Lookup Tool Documentation
 
 Introduction
+
 The HTTP Status Code Lookup Tool is a command-line utility written in C that allows you to quickly look up and understand the meanings of HTTP status codes commonly encountered when interacting with web applications. This tool provides explanations for different status codes to help you understand their context and possible solutions.
 
 Usage
