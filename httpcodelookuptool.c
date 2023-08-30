@@ -33,7 +33,6 @@ int main() {
         {404, "Not Found", "The requested resource could not be found on the server."},
         {500, "Internal Server Error", "There was an unexpected error on the server."},
         {503, "Service Unavailable", "The server is temporarily unable to handle the request due to maintenance or high load."},
-        // Add more HTTP status codes and explanations here
     };
 
     int numCodes = sizeof(statusCodes) / sizeof(statusCodes[0]);
