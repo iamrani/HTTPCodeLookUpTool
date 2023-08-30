@@ -23,39 +23,44 @@ void displayStatusCodeInfo(const struct StatusCode *statusCodes, int numCodes, i
 int main() {
     // Array of HTTP status code structures with common web-related status codes
     struct StatusCode statusCodes[] = {
-        {100, "Continue", "The server has received the request headers and will proceed with the request."},
-        {200, "OK", "The request was successful and the server has returned the requested data."},
-        {201, "Created", "The request was successful, and a new resource was created as a result."},
-        {204, "No Content", "The server has successfully fulfilled the request, but there is no additional content to send."},
+        {100, "Continue", "The server will proceed with the request after receiving the headers."},
+        {200, "OK", "The request was successful and the server returned the requested data."},
+        {201, "Created", "A new resource was successfully created as a result of the request."},
+        {204, "No Content", "The server fulfilled the request, but there is no additional content."},
         {400, "Bad Request", "The server cannot understand the request due to a client error."},
-        {401, "Unauthorized", "The request requires user authentication or the provided credentials are invalid."},
-        {403, "Forbidden", "The server understood the request, but the client does not have permission to access the resource."},
+        {401, "Unauthorized", "Authentication is required or provided credentials are invalid."},
+        {403, "Forbidden", "The client does not have permission to access the resource."},
         {404, "Not Found", "The requested resource could not be found on the server."},
-        {500, "Internal Server Error", "There was an unexpected error on the server."},
-        {503, "Service Unavailable", "The server is temporarily unable to handle the request due to maintenance or high load."},
+        {500, "Internal Server Error", "An unexpected error occurred on the server."},
+        {503, "Service Unavailable", "The server cannot handle the request temporarily due to maintenance or load."},
+        // Add more HTTP status codes and explanations here
     };
 
-    int numCodes = sizeof(statusCodes) / sizeof(statusCodes[0]);
+    int numCodes = sizeof(statusCodes) / sizeof(statusCodes[0]); //Calculate Number of Status Codes
 
-    int userInput;
-    printf("HTTP Status Code Lookup Tool\n");
+    printf("HTTP Status Code Lookup Tool\n"); //Print Program Header
 
-    while (1) {
+    //User Interaction Loop
+    while (1) { 
+        int userInput; //Input Handling:
         printf("Enter an HTTP status code (or enter -1 to exit): ");
         scanf("%d", &userInput);
-
+    
+        //Exit Condition Check
         if (userInput == -1) {
             printf("Exiting the tool.\n");
             break;
         }
 
+        //Validation Check
         if (userInput < 100 || userInput > 599) {
             printf("Invalid HTTP status code. Please enter a value between 100 and 599.\n");
             continue;
         }
-
+        //Display Status Code Information
         displayStatusCodeInfo(statusCodes, numCodes, userInput);
     }
 
     return 0;
 }
+
